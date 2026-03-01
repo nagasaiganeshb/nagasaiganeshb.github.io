@@ -5,6 +5,32 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Naga Sai Ganesh B — AI Engineer & Full Stack Developer</title>
 <meta name="description" content="AI Engineer and Full Stack Developer. Building intelligent systems grounded in real human problems. National Winner SIH 2020."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://nagasaiganeshb.github.io/"/>
+<meta name="theme-color" content="#0D1117"/>
+
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Naga Sai Ganesh B Portfolio"/>
+<meta property="og:title" content="Naga Sai Ganesh B - AI Engineer & Full Stack Developer"/>
+<meta property="og:description" content="AI Engineer and Full Stack Developer. Building intelligent systems grounded in real human problems. National Winner SIH 2020."/>
+<meta property="og:url" content="https://nagasaiganeshb.github.io/"/>
+<meta property="og:image" content="https://nagasaiganeshb.github.io/profile_nagasaiganesh.jpeg"/>
+<meta property="og:image:secure_url" content="https://nagasaiganeshb.github.io/profile_nagasaiganesh.jpeg"/>
+<meta property="og:image:type" content="image/jpeg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1200"/>
+<meta property="og:image:alt" content="Naga Sai Ganesh B profile photo"/>
+<meta property="profile:first_name" content="Naga Sai"/>
+<meta property="profile:last_name" content="Ganesh B"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Naga Sai Ganesh B - AI Engineer & Full Stack Developer"/>
+<meta name="twitter:description" content="AI Engineer and Full Stack Developer. Building intelligent systems grounded in real human problems. National Winner SIH 2020."/>
+<meta name="twitter:image" content="https://nagasaiganeshb.github.io/profile_nagasaiganesh.jpeg"/>
+<meta name="twitter:image:alt" content="Naga Sai Ganesh B profile photo"/>
+<meta name="twitter:url" content="https://nagasaiganeshb.github.io/"/>
+<meta name="author" content="Naga Sai Ganesh B"/>
 <script>
 (() => {
   try {
@@ -146,8 +172,8 @@ nav.scrolled{box-shadow:var(--shadow-md)}
 .journey-head{text-align:center;margin-bottom:4rem}
 .journey-head h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
 .journey-head p{color:var(--text-secondary);max-width:480px;margin:0 auto}
-.timeline{position:relative;max-width:860px;margin:0 auto}
-.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--gold),var(--accent));transform:translateX(-50%);opacity:.2}
+.timeline{position:relative;max-width:860px;margin:0 auto;--tl-progress:0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--gold),var(--accent));transform:translateX(-50%) scaleY(var(--tl-progress));transform-origin:top;opacity:.22;transition:transform .12s linear}
 .tl-item{display:flex;align-items:flex-start;gap:2rem;margin-bottom:2.5rem;position:relative;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
 .tl-item.visible{opacity:1;transform:translateY(0)}
 .tl-item:nth-child(even){flex-direction:row-reverse}
@@ -520,7 +546,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
         <img src="profile_nagasaiganesh.jpeg" alt="Naga Sai Ganesh" />
       </div>
       <div class="p-name">Naga Sai Ganesh B</div>
-      <div class="p-sub">AI Engineer &middot; Full Stack Developer &middot; Hyderabad</div>
+      <div class="p-sub">AI Engineer &middot; Full Stack Developer</div>
       <div class="p-tags">
         <span class="tag">Generative AI</span>
         <span class="tag">RAG Systems</span>
@@ -1138,8 +1164,34 @@ const ro = new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isInterse
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
 // Timeline reveal
-const to = new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.15});
+const timeline = document.querySelector('.timeline');
+function updateTimelineProgress(){
+  if(!timeline) return;
+  const rect = timeline.getBoundingClientRect();
+  const visibleItems = timeline.querySelectorAll('.tl-item.visible');
+  if(!visibleItems.length){
+    timeline.style.setProperty('--tl-progress', '0');
+    return;
+  }
+
+  const lastVisible = visibleItems[visibleItems.length-1];
+  const lastRect = lastVisible.getBoundingClientRect();
+  const covered = (lastRect.top - rect.top) + (lastRect.height * 0.58);
+  const raw = covered / rect.height;
+  const progress = Math.max(0, Math.min(1, raw));
+  timeline.style.setProperty('--tl-progress', progress.toFixed(4));
+}
+
+const to = new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add('visible');
+    updateTimelineProgress();
+  }
+}), {threshold:.15});
 document.querySelectorAll('.tl-item').forEach((el,i)=>{ el.style.transitionDelay = i*.07+'s'; to.observe(el); });
+window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+window.addEventListener('resize', updateTimelineProgress);
+updateTimelineProgress();
 
 // Counter animation + fill bars
 const co = new IntersectionObserver(entries=>{
