@@ -312,7 +312,7 @@ nav.scrolled{box-shadow:var(--shadow-md)}
 #contact h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
 #contact h2 em{font-style:italic;color:var(--accent);font-weight:300}
 .contact-sub{color:var(--text-secondary);font-size:1rem;line-height:1.7;margin-bottom:2.5rem}
-.contact-email{display:inline-flex;align-items:center;gap:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:600;color:var(--text-primary);margin-bottom:2rem;transition:all .25s;box-shadow:var(--shadow-sm)}
+.contact-email{display:inline-flex;align-items:center;gap:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:600;color:var(--text-primary);margin-bottom:2rem;transition:all .25s;box-shadow:var(--shadow-sm);max-width:100%;overflow-wrap:anywhere}
 .contact-email:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-md)}
 .csocs{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 .csoc{display:flex;align-items:center;gap:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:10px 18px;font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .25s}
@@ -369,29 +369,67 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
   .certs-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr}
   .hero-inner{grid-template-columns:1fr}
-  .hero-card{max-width:400px}
+  .hero-card{max-width:400px;margin:0 auto}
 }
 @media(max-width:768px){
+  section{padding:4.25rem 0}
+  .container,.nav-inner{padding:0 1rem}
   .nav-links,.nav-cta{display:none}
   .hamburger{display:block}
-  .hero-inner{padding-top:7rem}
+  .mobile-menu{padding:1rem;max-height:calc(100dvh - 64px);overflow-y:auto}
+  #hero{min-height:auto}
+  .hero-inner{padding:7rem 1rem 2.25rem;gap:2rem}
   .hero-title{font-size:2.4rem}
   .tw-word{font-size:2.4rem}
+  .hero-tagline{font-size:1rem;line-height:1.7}
+  .hero-stats{gap:1.2rem}
+  .h-div{display:none}
+  .hero-actions{gap:.75rem}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary{width:100%;justify-content:center}
+  .hero-actions .btn-ghost{padding-top:.6rem}
+  .hero-card{padding:1.35rem}
+  .about-quote,.chl{padding:.85rem 1rem}
   .projects-grid{grid-template-columns:1fr}
   .pcard.featured{grid-column:span 1}
   .skills-grid{grid-template-columns:1fr}
   .awards-grid{grid-template-columns:1fr}
+  .pbody{padding:1.1rem}
   .story-panel{padding:2rem 1.5rem}
-  .timeline::before{left:24px}
+  .timeline::before{left:18px}
   .tl-item,.tl-item:nth-child(even){flex-direction:row}
+  .tl-item{gap:1rem;margin-bottom:1.35rem}
   .tl-node{width:36px;height:36px;font-size:.8rem}
+  .tl-content{padding:1rem}
+  .contact-email{width:100%;justify-content:center;padding:12px 16px}
+  .csocs{gap:.65rem}
+  .csoc{width:100%;justify-content:center}
+  .story-panel{height:100dvh}
+  .story-title{font-size:1.9rem}
+  .story-close{margin-bottom:1.2rem}
+  .back-top{bottom:1rem;right:1rem}
 }
 @media(max-width:480px){
+  .container,.nav-inner,.hero-inner{padding-left:.8rem;padding-right:.8rem}
+  .nav-logo{font-size:1rem}
+  .theme-toggle{padding:6px 10px}
+  .theme-toggle span:last-child{display:none}
+  .mobile-menu{padding:.85rem .8rem 1.1rem}
+  .hero-title,.tw-word{font-size:1.95rem}
+  .hero-badge{font-size:.72rem;padding:5px 12px 5px 9px}
   .hero-stats{gap:1.25rem}
   .h-num{font-size:1.5rem}
-  .certs-grid{grid-template-columns:1fr 1fr}
+  .hero-tagline{font-size:.95rem}
+  .section-label{font-size:.66rem;letter-spacing:.14em}
+  .certs-grid{grid-template-columns:1fr}
+  .contact-email{font-size:.82rem}
   .csocs{gap:.6rem}
   .csoc{padding:8px 13px;font-size:.82rem}
+  .story-panel{padding:1.35rem .9rem}
+  .ctitle{font-size:1.2rem}
+  .cbody{font-size:.9rem;line-height:1.7}
+  .scbtn{font-size:.8rem;padding:7px 12px}
+  .flinks{justify-content:center;flex-wrap:wrap}
   .footer-inner{flex-direction:column;text-align:center}
 }
 </style>
