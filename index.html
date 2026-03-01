@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Naga Sai Ganesh B — AI Engineer & Full Stack Developer</title>
 <meta name="description" content="AI Engineer and Full Stack Developer. Building intelligent systems grounded in real human problems. National Winner SIH 2020."/>
+<script>
+(() => {
+  try {
+    const savedTheme = localStorage.getItem('theme');
+    const theme = savedTheme === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (_) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -462,7 +473,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle"><i class="fas fa-sun" id="themeIcon"></i><span id="themeLbl">Light</span></button>
+      <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i><span id="themeLbl">Dark</span></button>
       <a href="#contact" class="nav-cta">Let's Connect</a>
       <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
     </div>
@@ -1101,11 +1112,11 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
   draw();
 })();
 
-// Theme (default light)
+// Theme (default dark)
 const html = document.documentElement;
 const themeIcon = document.getElementById('themeIcon');
 const themeLbl = document.getElementById('themeLbl');
-let isDark = localStorage.getItem('theme') === 'dark';
+let isDark = html.getAttribute('data-theme') === 'dark';
 applyTheme();
 document.getElementById('themeToggle').addEventListener('click', ()=>{ isDark=!isDark; applyTheme(); localStorage.setItem('theme', isDark?'dark':'light'); });
 function applyTheme(){ html.setAttribute('data-theme', isDark?'dark':'light'); themeIcon.className = isDark?'fas fa-moon':'fas fa-sun'; themeLbl.textContent = isDark?'Dark':'Light'; }
@@ -1181,3 +1192,5 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeStory(); });
 </script>
 </body>
 </html>
+
+
