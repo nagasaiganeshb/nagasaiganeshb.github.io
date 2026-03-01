@@ -372,6 +372,27 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
 .back-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
 /* ─── STORY OVERLAY ─── */
+/* --- WELCOME DIALOG --- */
+#welcome-overlay{position:fixed;inset:0;z-index:2100;display:none;align-items:center;justify-content:center;padding:1.25rem}
+#welcome-overlay.open{display:flex}
+.welcome-bg{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px)}
+.welcome-card{position:relative;z-index:1;width:min(640px,100%);background:linear-gradient(165deg,var(--bg-card) 0%,color-mix(in srgb,var(--bg-card) 90%,var(--accent) 10%) 100%);border:1px solid var(--border);border-radius:20px;padding:1.4rem;box-shadow:var(--shadow-lg);overflow:hidden}
+.welcome-card::after{content:'';position:absolute;right:-60px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,64,.2) 0%,rgba(212,170,64,0) 70%);pointer-events:none}
+.welcome-head{display:flex;align-items:flex-start;justify-content:flex-end;gap:1rem;margin-bottom:.55rem}
+.welcome-close{border:1px solid var(--border);background:var(--bg-alt);color:var(--text-secondary);width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.welcome-close:hover{border-color:var(--accent);color:var(--accent)}
+.welcome-top{display:grid;grid-template-columns:128px 1fr;gap:1rem;align-items:center;margin-bottom:.9rem}
+.welcome-avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 10px 22px rgba(10,61,98,.24)}
+.welcome-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.welcome-title{font-family:'Fraunces',serif;font-size:1.42rem;line-height:1.2;letter-spacing:-.01em}
+.welcome-title span{color:var(--gold)}
+.welcome-name{font-size:1rem;font-weight:700;color:var(--text-primary);margin-top:.3rem}
+.welcome-role{font-size:.85rem;color:var(--text-muted)}
+.welcome-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.55rem}
+.wtag{font-size:.7rem;padding:4px 10px;border-radius:999px;background:var(--bg-alt);border:1px solid var(--border);color:var(--text-secondary);font-weight:600}
+.welcome-text{font-size:.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem}
+.welcome-actions{display:flex;gap:.7rem;flex-wrap:wrap}
+.welcome-actions .btn-primary,.welcome-actions .btn-secondary{padding:10px 18px;font-size:.86rem}
 #story-overlay{position:fixed;inset:0;z-index:2000;display:none;align-items:stretch}
 #story-overlay.open{display:flex}
 .story-bg{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);cursor:pointer}
@@ -480,6 +501,12 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
   .cbody{font-size:.9rem;line-height:1.7}
   .scbtn{font-size:.8rem;padding:7px 12px}
   .flinks{justify-content:center;flex-wrap:wrap}
+  .welcome-card{padding:1rem}
+  .welcome-top{grid-template-columns:1fr;text-align:center}
+  .welcome-avatar{margin:0 auto}
+  .welcome-title{font-size:1.15rem}
+  .welcome-name{font-size:.95rem}
+  .welcome-actions .btn-primary,.welcome-actions .btn-secondary{width:100%;justify-content:center}
   .footer-inner{flex-direction:column;text-align:center}
 }
 </style>
@@ -1035,6 +1062,34 @@ footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:2rem 
 <!-- BACK TO TOP -->
 <a href="#hero" class="back-top" id="backTop" title="Back to top"><i class="fas fa-arrow-up"></i></a>
 
+
+<!-- WELCOME DIALOG -->
+<div id="welcome-overlay" aria-hidden="true">
+  <div class="welcome-bg"></div>
+  <div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-head">
+      <button class="welcome-close" id="welcomeClose" aria-label="Close welcome dialog"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="welcome-top">
+      <div class="welcome-avatar"><img src="profile_nagasaiganesh.jpeg" alt="Naga Sai Ganesh B"/></div>
+      <div>
+        <h2 class="welcome-title" id="welcomeTitle">Welcome to <span>my portfolio</span></h2>
+        <div class="welcome-name">Naga Sai Ganesh B</div>
+        <div class="welcome-role">AI Engineer &amp; Full Stack Developer</div>
+        <div class="welcome-tags">
+          <span class="wtag">SIH 2020 Winner</span>
+          <span class="wtag">Production AI</span>
+          <span class="wtag">Hyderabad</span>
+        </div>
+      </div>
+    </div>
+    <p class="welcome-text">Want to connect directly or start exploring projects and achievements first?</p>
+    <div class="welcome-actions">
+      <a href="mailto:nagasaiganeshb@outlook.com" class="btn-primary" id="welcomeReach"><i class="fas fa-envelope"></i> Reach Out</a>
+      <button class="btn-secondary" id="welcomeExplore"><i class="fas fa-layer-group"></i> View Portfolio</button>
+    </div>
+  </div>
+</div>
 <!-- STORY OVERLAY -->
 <div id="story-overlay">
   <div class="story-bg" onclick="closeStory()"></div>
@@ -1230,6 +1285,37 @@ window.addEventListener('scroll', ()=>{
   navAs.forEach(a=>{ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
 });
 
+
+// First-visit welcome dialog
+(function(){
+  const welcome = document.getElementById('welcome-overlay');
+  const closeBtn = document.getElementById('welcomeClose');
+  const exploreBtn = document.getElementById('welcomeExplore');
+  const reachBtn = document.getElementById('welcomeReach');
+  if(!welcome || !closeBtn || !exploreBtn || !reachBtn) return;
+
+  const seenKey = 'welcome_seen_v1';
+  const closeWelcome = ()=>{
+    welcome.classList.remove('open');
+    welcome.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    localStorage.setItem(seenKey, '1');
+  };
+
+  closeBtn.addEventListener('click', closeWelcome);
+  exploreBtn.addEventListener('click', closeWelcome);
+  reachBtn.addEventListener('click', closeWelcome);
+  welcome.querySelector('.welcome-bg').addEventListener('click', closeWelcome);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && welcome.classList.contains('open')) closeWelcome(); });
+
+  if(localStorage.getItem(seenKey) !== '1'){
+    setTimeout(()=>{
+      welcome.classList.add('open');
+      welcome.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }, 700);
+  }
+})();
 // Story overlay
 function openStory(){
   const o = document.getElementById('story-overlay');
@@ -1244,5 +1330,3 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeStory(); });
 </script>
 </body>
 </html>
-
-
