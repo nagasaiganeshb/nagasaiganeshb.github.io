@@ -642,6 +642,95 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
 :root[data-theme="light"] .marquee::before{background:linear-gradient(90deg,#EFE8D8,transparent)}
 :root[data-theme="light"] .marquee::after{background:linear-gradient(-90deg,#EFE8D8,transparent)}
 
+
+/* ---------- phones: compact landing ---------- */
+.mhead{display:none}
+@media (max-width:640px){
+  .hero{min-height:0;padding:22px 0 30px}
+  .hero .wrap{gap:0}
+  .pwrap{display:none}
+  .mhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .mav{position:relative;width:56px;height:56px;border-radius:50%;padding:2px;background:conic-gradient(var(--gold-2),var(--accent-2),var(--gold-2));flex:none}
+  .mav img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--bg)}
+  .mhead b{display:block;font-family:var(--display);font-size:19px;font-weight:600;line-height:1.2}
+  .mhead small{font-size:13px;color:var(--muted)}
+  .hello{display:none}
+  .hero .pills{gap:6px;margin-bottom:14px}
+  .hero .pills .pill{font-size:12px;padding:5px 10px}
+  .hero .pills .pill.loc{display:none}
+  .hero h1{font-size:36px;line-height:1.05}
+  .hero .sub{font-size:15.5px;margin-top:14px;line-height:1.55}
+  .cta{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8px;margin-top:20px}
+  .cta .btn{justify-content:center;padding:10px 6px;font-size:13.5px;gap:6px;white-space:nowrap}
+  .cta .btn .icon{font-size:14px}
+  .hero .pills{flex-wrap:nowrap}
+  .hero .pills .dk{display:none}
+  .counters{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px;margin-top:20px}
+  .stat{padding:10px 6px 9px;align-items:center;text-align:center}
+  .stat .sico{display:none}
+  .stat strong{font-size:24px;align-self:center}
+  .stat .sl{font-size:10.5px;line-height:1.25}
+}
+@media (max-width:360px){.hero h1{font-size:32px}.cta .btn{font-size:12.5px;padding:9px 4px}.hero .pills .pill{font-size:11px;padding:5px 8px}}
+
+
+/* ---------- phones: lighter, compact page ---------- */
+@media (max-width:640px){
+  section{padding:56px 0}
+  h2{font-size:30px}
+  .lead{font-size:15.5px;margin-top:12px}
+  .kicker{margin-bottom:10px}
+  .plain{display:none}
+  .feature{margin-top:26px}
+  .fvis,.pvis{display:none}
+  .ftext{padding:22px 16px}
+  .feature h3{font-size:30px}
+  .feature .lede{font-size:15px}
+  .chan{gap:10px}
+  .cgrp .slab{width:100%;margin-bottom:-1px}
+  .chan .src:not(.ico){font-size:11.5px;padding:4px 8px 4px 6px;gap:4px}
+  .chan .src:not(.ico) .icon{font-size:13px}
+  .chan .cgrp{gap:5px}
+  .fbottom.compact{padding:16px 20px}
+  .bens{gap:10px}
+  .bens li{font-size:12.5px}
+  .rows{gap:14px;margin-top:14px}
+  .ptext{padding:20px;gap:9px}
+  .ptext h3{font-size:25px}
+  .what{font-size:15px}
+  .detail{display:none}
+  .nums{gap:16px}
+  .nums strong{font-size:21px}
+  .also{padding:16px 18px}
+  .xp{margin-top:22px;gap:14px}
+  .ladder{margin-top:18px;gap:6px}
+  .ladder span{font-size:12.5px;padding:6px 11px}
+  .timeline,.edu{padding:20px}
+  .tl li{padding-bottom:14px}
+  .skills .srow{padding:12px 18px}
+  .agrid{margin-top:24px;gap:12px}
+  .award{padding:18px;gap:7px}
+  .award.top{padding:22px}
+  .award.top .big{font-size:54px}
+  .award p{font-size:13.5px}
+  .award .medal{font-size:80px}
+  .subh{margin-top:34px}
+  .cgrid{gap:12px;margin-top:14px}
+  .cert{padding:16px;grid-template-columns:48px 1fr;gap:3px 12px}
+  .cert .logo.badge,.cert .logo.badge img{width:48px;height:48px}
+  .cert h3{font-size:16.5px}
+  .cert .covers,.cert .id{display:none}
+  .verify-note{font-size:13px;padding:14px 16px}
+  .story{margin-top:22px;gap:10px}
+  details.ch summary{padding:16px 18px}
+  details.ch summary h3{font-size:18px}
+  .chbody{font-size:15px;padding:0 18px 18px}
+  .quote{font-size:22px;margin-top:34px}
+  .cta-band{padding:24px 18px}
+  .us{gap:22px;margin-top:20px}
+  .contact a{font-size:14px;padding:12px 14px}
+}
+
 /* ---------- print = a separate, compact résumé (hidden on screen) ---------- */
 .resume{display:none}
 @media print{
@@ -766,10 +855,11 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
   <div class="wrap">
     <div>
       <div class="pills">
-        <span class="pill visa"><span class="dot"></span>Open to new opportunities</span>
+        <span class="pill visa"><span class="dot"></span>Open to <span class="dk">new </span>opportunities</span>
         <span class="pill move"><svg class="icon"><use href="#i-plane"/></svg>Relocating to the US</span>
-        <span class="pill"><svg class="icon"><use href="#i-pin"/></svg>Hyderabad, India</span>
+        <span class="pill loc"><svg class="icon"><use href="#i-pin"/></svg>Hyderabad, India</span>
       </div>
+      <div class="mhead"><span class="mav"><img src="profile_nagasaiganesh.jpeg" alt="" width="56" height="56"></span><span><b>Naga Sai Ganesh B</b><small>AI Technical Lead &amp; Architect</small></span></div>
       <p class="hello">Hi, I'm <b>Naga Sai Ganesh B</b> — AI Technical Lead &amp; Architect</p>
       <h1>Building AI that starts with a <span class="tw" aria-label="real problem."><span id="tw">real problem.</span><span class="tw-cursor" aria-hidden="true"></span></span></h1>
       <p class="sub">I lead and architect <mark class="hl">AI platforms for government and enterprise</mark> — at <strong>MSRcosmos</strong> — most recently <strong>MediaIntel</strong>, an AI media-intelligence platform built for the Government of Andhra Pradesh.</p>
@@ -1407,6 +1497,8 @@ const FILL = {
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const root = document.documentElement;
+
+  if (matchMedia('(max-width:640px)').matches) $$('details.ch[open]').forEach((d) => d.removeAttribute('open'));
 
   // name / "Back to top": go to the very top without adding #main to the address
   $$('.to-top').forEach((a) => a.addEventListener('click', (e) => {
