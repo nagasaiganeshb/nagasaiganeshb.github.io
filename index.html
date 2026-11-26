@@ -755,14 +755,48 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
 .mchip.live{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,var(--line));background:var(--ok-soft)}
 .mchip.live i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulseDot 2s infinite}
 @media (max-width:640px){.mchip{font-size:12px;padding:5px 10px 5px 8px}}
-/* nav links on tablets and phones: a scrollable row under the header */
+
+/* phone / tablet menu */
+.menubtn,.mnav{display:none}
 @media (max-width:920px){
-  .bar{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:0;row-gap:6px}
-  nav.links{display:flex;order:5;width:calc(100% + 44px);margin:0 -22px;padding:0 22px 8px;overflow-x:auto;scrollbar-width:none;gap:4px}
-  nav.links::-webkit-scrollbar{display:none}
-  nav.links a{flex:none;padding:5px 10px;font-size:13px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 70%,transparent)}
-  nav.links a.active{border-color:color-mix(in oklab,var(--gold) 50%,var(--line));color:var(--text)}
-  section{scroll-margin-top:104px}
+  nav.links{display:none!important}
+  .menubtn{display:grid}
+  .menubtn .i-close{display:none}
+  header.top.open .menubtn .i-open{display:none}
+  header.top.open .menubtn .i-close{display:block}
+  .mnav{display:grid;gap:4px;max-height:0;overflow:hidden;padding:0 22px;transition:max-height .3s ease,padding .3s ease;border-top:1px solid transparent}
+  header.top.open .mnav{max-height:420px;padding:10px 22px 16px;border-top-color:var(--line)}
+  .mnav a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;color:var(--text)}
+  .mnav a .icon{color:var(--gold);font-size:17px}
+  .mnav a:hover,.mnav a.active{background:var(--accent-soft)}
+  .mnav a.go{margin-top:4px;background:linear-gradient(135deg,var(--gold-2),#e9c766);color:#1a1405;justify-content:center}
+  .mnav a.go .icon{color:#1a1405}
+  header.top.open{background:var(--bg);border-bottom-color:var(--line)}
+}
+
+/* desktop: more breathing room around text */
+@media (min-width:981px){
+  section{padding:112px 0}
+  .lead{max-width:58ch;line-height:1.7}
+  .ftext{padding:44px 44px 40px}
+  .feature .lede{max-width:52ch;line-height:1.7;margin-top:18px}
+  .chan{margin-top:24px;gap:10px}
+  .fbottom.compact{padding:24px 44px 26px}
+  .rows{gap:28px;margin-top:28px}
+  .ptext{padding:40px 44px 36px;gap:14px}
+  .ptext .what{max-width:46ch;line-height:1.6}
+  .ptext .detail{max-width:50ch;line-height:1.7}
+  .pvis{padding:36px}
+  .timeline,.edu{padding:34px 36px}
+  .tl li{padding-bottom:24px}
+  .award{padding:30px}
+  .award.top{padding:40px}
+  .award p{line-height:1.65}
+  .cert{padding:26px}
+  .skills .srow,.core{padding-left:34px;padding-right:34px}
+  details.ch summary{padding:26px 32px}
+  .chbody{line-height:1.75;max-width:calc(62ch + 160px)}
+  .cta-band{padding:56px}
 }
 
 /* ---------- print = a separate, compact résumé (hidden on screen) ---------- */
@@ -857,6 +891,7 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
   <symbol id="i-cal" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
   <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></symbol>
   <symbol id="i-crown" viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.150.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
@@ -880,7 +915,18 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
       <svg class="icon theme-ico-light"><use href="#i-moon"/></svg>
     </button>
     <a class="connect" href="#contact">Let's connect</a>
+    <button class="iconbtn menubtn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
+      <svg class="icon i-open"><use href="#i-menu"/></svg><svg class="icon i-close"><use href="#i-x"/></svg>
+    </button>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Sections">
+    <a href="#work"><svg class="icon"><use href="#i-brief"/></svg>Work</a>
+    <a href="#experience"><svg class="icon"><use href="#i-flow"/></svg>Experience</a>
+    <a href="#skills"><svg class="icon"><use href="#i-cpu"/></svg>Skills</a>
+    <a href="#proof"><svg class="icon"><use href="#i-award"/></svg>Awards &amp; certifications</a>
+    <a href="#story"><svg class="icon"><use href="#i-book"/></svg>My story</a>
+    <a href="#contact" class="go"><svg class="icon"><use href="#i-mail"/></svg>Let's connect</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -1536,6 +1582,15 @@ const FILL = {
   const root = document.documentElement;
 
   if (matchMedia('(max-width:640px)').matches) $$('details.ch[open]').forEach((d) => d.removeAttribute('open'));
+
+  // phone menu
+  const hdr = $('header.top'), mb = $('#menuBtn');
+  if (mb) {
+    const setOpen = (o) => { hdr.classList.toggle('open', o); mb.setAttribute('aria-expanded', o); mb.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); };
+    mb.addEventListener('click', () => setOpen(!hdr.classList.contains('open')));
+    $$('.mnav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
 
   // name / "Back to top": go to the very top without adding #main to the address
   $$('.to-top').forEach((a) => a.addEventListener('click', (e) => {
