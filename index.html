@@ -470,6 +470,8 @@ ul.did b{font-weight:600;color:var(--text)}
 .tl .when{font:500 12px/1 var(--mono);color:var(--faint);letter-spacing:.06em}
 .tl .what2{font-weight:700;font-size:17px;margin-top:6px}
 .tl .what2 span{display:block;font-weight:400;color:var(--muted);font-size:14.5px;margin-top:2px}
+.earlier{margin:22px 0 0;padding-top:16px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted)}
+.earlier .when{display:block;font:500 12px/1 var(--mono);color:var(--faint);letter-spacing:.06em;margin-bottom:6px}
 .edu{padding:28px;display:flex;flex-direction:column;gap:20px}
 .edu h3{font-family:var(--display);font-size:24px;font-weight:600}
 .edu .row{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}
@@ -861,7 +863,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
   html,body{background:#fff!important;color:#111;font:10pt/1.42 Inter,Arial,sans-serif}
   body > *:not(.resume){display:none!important}
   .resume{display:block;color:#111}
-  .resume h1{font-size:21pt;letter-spacing:-.02em;margin:0}
+  .resume .r-name{font-size:21pt;font-weight:700;letter-spacing:-.02em;margin:0}
   .resume .r-title{font-size:11.5pt;color:#333;margin:2pt 0 4pt}
   .resume .r-contact{font-size:8.8pt;color:#333}
   .resume .r-contact a{color:#1d3fbf;text-decoration:none}
@@ -1135,7 +1137,34 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
     <div class="rows">
       <article class="card prow spot reveal">
         <div class="ptext">
-          <div class="meta"><span class="role">Technical Lead</span><span>2024 – present</span><span class="status">Live</span></div>
+          <div class="meta"><span class="role">Architect &amp; ML Engineer</span><span>2025</span><span>Pilot for the Govt. of Andhra Pradesh</span></div>
+          <h3>CrowdPulse</h3>
+          <p class="vision"><svg class="icon"><use href="#i-spark"/></svg><span><b class="vshort">The Chief Minister's vision · pilot</b><span class="vlong">Also the Chief Minister's vision — a pilot for the Government of Andhra Pradesh. I architected and built its real-time video AI at MSRcosmos.</span></span></p>
+          <p class="what"><b>In short —</b> watches live video from public meetings and gatherings and shows, in real time, how the crowd is feeling.</p>
+          <p class="detail">A GPU-optimised pipeline — face detection → emotion classification → live sentiment dashboard — across many simultaneous streams, started automatically with no manual steps.</p>
+          <div class="nums"><div><strong>50+</strong>live video streams</div><div><strong>75%</strong>lower latency</div><div><strong>60%</strong>faster decisions</div></div>
+          <div class="tags"><span class="tag tech" style="--c:#3776AB"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" width="18" height="18" loading="lazy">Python</span><span class="tag tech" style="--c:#5C3EE8"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/opencv/opencv-original.svg" alt="" width="18" height="18" loading="lazy">OpenCV</span><span class="tag tech" style="--c:#FF6600"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/rabbitmq/rabbitmq-original.svg" alt="" width="18" height="18" loading="lazy">RabbitMQ</span><span class="tag tech" style="--c:#37814A"><i class="tdot"></i>Celery</span><span class="tag tech" style="--c:#DC382D"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" alt="" width="18" height="18" loading="lazy">Redis</span></div>
+          <div class="pfoot"><span class="status">Used during public events</span></div>
+        </div>
+        <div class="pvis" aria-hidden="true">
+          <div class="screen"><div class="chrome"><i></i><i></i><i></i><span>crowdpulse · live</span></div>
+            <div class="body">
+              <div class="vgrid">
+                <div class="vtile"><div class="crowd"></div><span class="box" data-l="happy 82%" style="left:24%;top:38%;width:16%;height:30%"></span><span class="livepill">LIVE</span><span class="cam">CAM 01</span></div>
+                <div class="vtile"><div class="crowd"></div><span class="box w" data-l="neutral" style="left:58%;top:34%;width:15%;height:30%;animation-delay:.5s"></span><span class="livepill">LIVE</span><span class="cam">CAM 02</span></div>
+                <div class="vtile"><div class="crowd"></div><span class="box" data-l="happy 76%" style="left:40%;top:40%;width:15%;height:28%;animation-delay:1s"></span><span class="livepill">LIVE</span><span class="cam">CAM 03</span></div>
+                <div class="vtile"><div class="crowd"></div><span class="box" data-l="surprise" style="left:18%;top:36%;width:16%;height:30%;animation-delay:1.5s"></span><span class="livepill">LIVE</span><span class="cam">CAM 04</span></div>
+              </div>
+              <div class="mood"><span style="width:56%;background:#4ade80"></span><span style="width:26%;background:#94a3b8"></span><span style="width:11%;background:#f4be4f"></span><span style="width:7%;background:#f26d6d"></span></div>
+              <div class="moodkey"><span><i style="background:#4ade80"></i>happy</span><span><i style="background:#94a3b8"></i>neutral</span><span><i style="background:#f4be4f"></i>surprise</span><span><i style="background:#f26d6d"></i>upset</span></div>
+            </div></div>
+          <div class="illus">illustration</div>
+        </div>
+      </article>
+
+      <article class="card prow spot reveal">
+        <div class="ptext">
+          <div class="meta"><span class="role">RAG / AI Architect</span><span>2024</span><span class="status">Live</span></div>
           <h3>Smart I Helper</h3>
           <p class="what"><b>In short —</b> people in an organisation ask a question in plain language and get an instant, sourced answer from the organisation's own policies, documents and reports.</p>
           <p class="detail">A production agentic RAG knowledge assistant for organisations: hybrid search, contextual chunking, re-ranking and multi-step reasoning, so answers hold up on real documents.</p>
@@ -1159,8 +1188,8 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
         <div class="ptext">
           <div class="meta"><span class="role">Architect · my first architect role</span><span>2023 – 2024</span><span class="status">Live</span></div>
           <h3>MSR GenAI</h3>
-          <p class="what"><b>In short —</b> a ChatGPT-style assistant for companies that answers from their own documents, with each client's data kept separate.</p>
-          <p class="detail">Multi-tenant enterprise SaaS: document automation, context-aware RAG and agentic workflows with human-in-the-loop review, on one secure, isolated architecture.</p>
+          <p class="what"><b>In short —</b> a GenAI SaaS where each client organisation sets up its own AI agents for every department — HR, finance, legal, operations — each working from that team's own documents and tools.</p>
+          <p class="detail">Multi-tenant SaaS with a no-code agent builder: customisable agents per department and domain, document automation, context-aware RAG and agentic workflows with human-in-the-loop review — every client's data isolated.</p>
           <div class="nums"><div><strong>90%</strong>answer accuracy</div><div><strong>80%</strong>lower dev cost</div><div><strong>$3,600</strong>saved a year</div></div>
           <div class="tags"><span class="tag tech" style="--c:#009688"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/fastapi/fastapi-original.svg" alt="" width="18" height="18" loading="lazy">FastAPI</span><span class="tag tech" style="--c:#DD0031"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/angular/angular-original.svg" alt="" width="18" height="18" loading="lazy">Angular</span><span class="tag tech" style="--c:#0078D4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" alt="" width="18" height="18" loading="lazy">Azure OpenAI</span><span class="tag tech" style="--c:#0078D4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" alt="" width="18" height="18" loading="lazy">AI Foundry</span><span class="tag tech" style="--c:#1C17FF"><i class="tdot"></i>Pinecone</span><span class="tag tech" style="--c:#4169E1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="18" height="18" loading="lazy">PostgreSQL</span></div>
           <div class="pfoot"><a class="link" href="https://app.msrgenai.com/" target="_blank" rel="noopener">app.msrgenai.com <svg class="icon"><use href="#i-ext"/></svg></a></div>
@@ -1175,33 +1204,6 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
                 <div class="doc"><svg class="icon"><use href="#i-file"/></svg>Q3 finance report.xlsx<em>indexing…</em><div class="pb"><span style="animation-delay:1.8s"></span></div></div>
               </div>
               <div class="gauge"><div class="ringg"><b>90%</b></div><small>answer accuracy on the client's own questions — every answer cites its source</small></div>
-            </div></div>
-          <div class="illus">illustration</div>
-        </div>
-      </article>
-
-      <article class="card prow spot reveal">
-        <div class="ptext">
-          <div class="meta"><span class="role">ML Engineer</span><span>2023</span><span>Pilot for the Govt. of Andhra Pradesh</span></div>
-          <h3>CrowdPulse</h3>
-          <p class="vision"><svg class="icon"><use href="#i-spark"/></svg><span><b class="vshort">The Chief Minister's vision · pilot</b><span class="vlong">Also the Chief Minister's vision — a pilot for the Government of Andhra Pradesh. I built its real-time video AI as ML engineer at MSRcosmos.</span></span></p>
-          <p class="what"><b>In short —</b> watches live video from public meetings and gatherings and shows, in real time, how the crowd is feeling.</p>
-          <p class="detail">A GPU-optimised pipeline — face detection → emotion classification → live sentiment dashboard — across many simultaneous streams, started automatically with no manual steps.</p>
-          <div class="nums"><div><strong>50+</strong>live video streams</div><div><strong>75%</strong>lower latency</div><div><strong>60%</strong>faster decisions</div></div>
-          <div class="tags"><span class="tag tech" style="--c:#3776AB"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" width="18" height="18" loading="lazy">Python</span><span class="tag tech" style="--c:#5C3EE8"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/opencv/opencv-original.svg" alt="" width="18" height="18" loading="lazy">OpenCV</span><span class="tag tech" style="--c:#FF6600"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/rabbitmq/rabbitmq-original.svg" alt="" width="18" height="18" loading="lazy">RabbitMQ</span><span class="tag tech" style="--c:#37814A"><i class="tdot"></i>Celery</span><span class="tag tech" style="--c:#DC382D"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" alt="" width="18" height="18" loading="lazy">Redis</span></div>
-          <div class="pfoot"><span class="status">Used during public events</span></div>
-        </div>
-        <div class="pvis" aria-hidden="true">
-          <div class="screen"><div class="chrome"><i></i><i></i><i></i><span>crowdpulse · live</span></div>
-            <div class="body">
-              <div class="vgrid">
-                <div class="vtile"><div class="crowd"></div><span class="box" data-l="happy 82%" style="left:24%;top:38%;width:16%;height:30%"></span><span class="livepill">LIVE</span><span class="cam">CAM 01</span></div>
-                <div class="vtile"><div class="crowd"></div><span class="box w" data-l="neutral" style="left:58%;top:34%;width:15%;height:30%;animation-delay:.5s"></span><span class="livepill">LIVE</span><span class="cam">CAM 02</span></div>
-                <div class="vtile"><div class="crowd"></div><span class="box" data-l="happy 76%" style="left:40%;top:40%;width:15%;height:28%;animation-delay:1s"></span><span class="livepill">LIVE</span><span class="cam">CAM 03</span></div>
-                <div class="vtile"><div class="crowd"></div><span class="box" data-l="surprise" style="left:18%;top:36%;width:16%;height:30%;animation-delay:1.5s"></span><span class="livepill">LIVE</span><span class="cam">CAM 04</span></div>
-              </div>
-              <div class="mood"><span style="width:56%;background:#4ade80"></span><span style="width:26%;background:#94a3b8"></span><span style="width:11%;background:#f4be4f"></span><span style="width:7%;background:#f26d6d"></span></div>
-              <div class="moodkey"><span><i style="background:#4ade80"></i>happy</span><span><i style="background:#94a3b8"></i>neutral</span><span><i style="background:#f4be4f"></i>surprise</span><span><i style="background:#f26d6d"></i>upset</span></div>
             </div></div>
           <div class="illus">illustration</div>
         </div>
@@ -1294,19 +1296,20 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
     <p class="kicker">Experience</p>
     <h2 id="xp-h">Across the whole stack <em>before leading it.</em></h2>
     <div class="ladder reveal" aria-label="Career progression">
-      <span>Frontend Developer</span><i>→</i><span>Backend Lead</span><i>→</i><span>ML Engineer</span><i>→</i><span>Architect</span><i>→</i><span>Technical Lead &amp; Architect</span>
+      <span>Frontend Developer</span><i>→</i><span>Backend Lead</span><i>→</i><span>Architect</span><i>→</i><span>AI / ML Architect</span><i>→</i><span>Technical Lead &amp; Architect</span>
     </div>
     <div class="xp">
       <div class="card timeline reveal">
         <div class="co"><h3>MSRcosmos · Hyderabad</h3><span class="mono note">JAN 2022 – PRESENT</span></div>
         <ul class="tl" id="tl">
           <li><span class="tl-node"></span><div class="when">2026 – PRESENT</div><div class="what2">Technical Lead &amp; Architect<span>MediaIntel — built for the Dept. of I&amp;PR, Govt. of Andhra Pradesh</span></div></li>
-          <li><span class="tl-node"></span><div class="when">2024 – PRESENT</div><div class="what2">Technical Lead<span>Smart I Helper — AI knowledge assistant for organisations</span></div></li>
-          <li><span class="tl-node"></span><div class="when">2023 – 2024</div><div class="what2">Architect<span>MSR GenAI — multi-tenant GenAI SaaS</span></div></li>
-          <li><span class="tl-node"></span><div class="when">2023</div><div class="what2">ML Engineer<span>CrowdPulse — the Chief Minister's vision, real-time video AI pilot for the Govt. of AP</span></div></li>
+          <li><span class="tl-node"></span><div class="when">2025</div><div class="what2">Architect &amp; ML Engineer<span>CrowdPulse — the Chief Minister's vision, real-time video AI pilot for the Govt. of AP</span></div></li>
+          <li><span class="tl-node"></span><div class="when">2024</div><div class="what2">RAG / AI Architect<span>Smart I Helper — AI knowledge assistant for organisations</span></div></li>
+          <li><span class="tl-node"></span><div class="when">2023 – 2024</div><div class="what2">Architect<span>MSR GenAI — GenAI SaaS with customisable agents for every department</span></div></li>
           <li><span class="tl-node"></span><div class="when">2022</div><div class="what2">Backend Lead<span>Vinci360 — social-media intelligence SaaS</span></div></li>
           <li><span class="tl-node"></span><div class="when">2022</div><div class="what2">Frontend Developer<span>OnlineSilver — e-commerce</span></div></li>
         </ul>
+        <p class="earlier"><span class="when">JUL 2021 – DEC 2021</span> Before MSRcosmos — software engineer at a product startup.</p>
       </div>
       <div class="card edu reveal d1">
         <h3>Education</h3>
@@ -1488,10 +1491,10 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
       </details>
 
       <details class="ch reveal">
-        <summary><span class="yr">2022 – today</span><span><h3>MSRcosmos — building at scale</h3><span class="sum">Frontend → backend lead → ML → architect → leading a state government platform.</span></span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <summary><span class="yr">2022 – today</span><span><h3>MSRcosmos — building at scale</h3><span class="sum">Frontend → backend lead → architect → AI / ML → leading a state government platform.</span></span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
         <div class="chbody">
-          <p>I joined <strong>MSRcosmos in January 2022</strong> and took on a bigger role every year.</p>
-          <p><strong>OnlineSilver</strong> — frontend developer on a greenfield e-commerce launch; the component library I built still speeds up projects. <strong>Vinci360</strong> — as backend lead, I revived a retired system in a week and scaled it past a million records a day. <strong>CrowdPulse</strong> — as ML engineer, the vision ideas from Smart Rescue, now reading crowd emotion across 50+ live streams in a pilot of another of the Chief Minister's visions. <strong>MSR GenAI</strong> — my first product as architect. <strong>Smart I Helper</strong> — technical lead for an agentic AI knowledge assistant for organisations.</p>
+          <p>After a first stint at a product startup from July 2021, I joined <strong>MSRcosmos in January 2022</strong> and took on a bigger role every year.</p>
+          <p><strong>OnlineSilver</strong> — frontend developer on a greenfield e-commerce launch; the component library I built still speeds up projects. <strong>Vinci360</strong> — as backend lead, I revived a retired system in a week and scaled it past a million records a day. <strong>MSR GenAI</strong> — my first product as architect: a GenAI SaaS where client organisations build their own agents for each department. <strong>Smart I Helper</strong> — as RAG / AI architect, an agentic AI knowledge assistant for organisations. <strong>CrowdPulse</strong> (2025) — as architect and ML engineer, the vision ideas from Smart Rescue, now reading crowd emotion across 50+ live streams in a pilot of another of the Chief Minister's visions.</p>
           <p>Today, at MSRcosmos, I'm <strong>Technical Lead &amp; Architect of MediaIntel</strong>, built for the Department of Information &amp; Public Relations.</p>
           <p>It's a full circle: in 2018, Chief Minister <strong>Shri N. Chandrababu Naidu garu</strong> presented me the Prathibha Award as a diploma student. Since then, I've built the technology behind his ideas — the <strong>CrowdPulse</strong> pilot and now <strong>MediaIntel</strong>, presented at the District Collectors' Conference as his brainchild, where I lead the technical execution.</p>
           <span class="proofs" data-proof="miConf"></span>
@@ -1542,8 +1545,8 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
 
 <!-- printable résumé: what "Download résumé" saves (Print → Save as PDF). Keep in sync with the page. -->
 <div class="resume" aria-hidden="true">
-  <h1>Naga Sai Ganesh B</h1>
-  <div class="r-title">AI Technical Lead &amp; Architect · ~5 years · Hyderabad, India</div>
+  <div class="r-name">Naga Sai Ganesh B</div>
+  <div class="r-title">AI Technical Lead &amp; Architect · 5+ years · Hyderabad, India</div>
   <div class="r-contact"><a href="mailto:nagasaiganeshb@outlook.com">nagasaiganeshb@outlook.com</a> · +91 90521 91523 · <a href="https://www.linkedin.com/in/nagasaiganeshb">linkedin.com/in/nagasaiganeshb</a> · <a href="https://github.com/nagasaiganeshb">github.com/nagasaiganeshb</a> · <a href="https://nagasaiganeshb.github.io">nagasaiganeshb.github.io</a></div>
 
   <h2>Summary</h2>
@@ -1557,16 +1560,18 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
       <li>The platform listens to news and social media across all 28 districts, spots rising public issues early, measures public mood, and routes each issue to the responsible official.</li>
       <li>Own architecture, AI and delivery end to end, including role- and region-based access so every official sees exactly their own district or department.</li>
     </ul></div>
-  <div class="r-proj"><b>Technical Lead — Smart I Helper</b> <i>(2024 – present · app.smartihelper.com)</i>
+  <div class="r-proj"><b>Architect &amp; ML Engineer — CrowdPulse</b> <i>(2025 · the Chief Minister's vision; pilot for the Government of Andhra Pradesh)</i>
+    <ul><li>Real-time crowd-emotion analytics over 50+ live video streams (face detection → emotion classification → live dashboard); 75% lower latency.</li></ul></div>
+  <div class="r-proj"><b>RAG / AI Architect — Smart I Helper</b> <i>(2024 · app.smartihelper.com)</i>
     <ul><li>Agentic RAG knowledge assistant for organisations: hybrid search, contextual chunking, re-ranking and multi-step reasoning over internal policies, documents and reports.</li></ul></div>
   <div class="r-proj"><b>Architect — MSR GenAI</b> <i>(2023 – 2024 · app.msrgenai.com · first architect role)</i>
-    <ul><li>Multi-tenant enterprise GenAI SaaS with RAG, document automation and agentic workflows — 90% answer accuracy, 80% lower development cost.</li></ul></div>
-  <div class="r-proj"><b>ML Engineer — CrowdPulse</b> <i>(2023 · the Chief Minister's vision; pilot for the Government of Andhra Pradesh)</i>
-    <ul><li>Real-time crowd-emotion analytics over 50+ live video streams (face detection → emotion classification → live dashboard); 75% lower latency.</li></ul></div>
+    <ul><li>Multi-tenant GenAI SaaS where client organisations configure their own AI agents per department and domain (HR, finance, legal, operations), with RAG, document automation and human-in-the-loop workflows — 90% answer accuracy, 80% lower development cost.</li></ul></div>
   <div class="r-proj"><b>Backend Lead — Vinci360</b> <i>(2022 · vinci360.com)</i>
     <ul><li>Revived a retired system in one week and scaled it into a social-media intelligence SaaS: 1M+ records/day, 200% more scale, 40% lower cost.</li></ul></div>
   <div class="r-proj"><b>Frontend Developer — OnlineSilver</b> <i>(2022)</i>
     <ul><li>Greenfield e-commerce frontend; built a reusable component library that made later projects' features 50% faster to deliver.</li></ul></div>
+  <div class="r-job" style="margin-top:6pt">Product startup <span>Jul 2021 – Dec 2021</span></div>
+  <div class="r-proj"><i>Software engineer (company name withheld).</i></div>
   <p class="r-muted" style="margin-top:4pt">Proofs of concept: SAP on Azure, Microsoft Copilot &amp; Copilot Studio, AI agents on Azure AI Foundry, MCP, Oracle AI Database 26ai, Power Platform.</p>
 
   <h2>Certifications</h2>
