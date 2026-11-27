@@ -1768,6 +1768,7 @@ const FILL = {
   function openViewer(p) {
     if (typeof viewer.showModal !== 'function') { window.open(p.url, '_blank', 'noopener'); return; }
     $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; loadFrame(embedUrl(p.url)); lockPage(); viewer.showModal(); cleaned = false;
+    history.pushState({ viewer: 1 }, '');   // one step, so phone Back closes the popup (also after visiting Drive / another tab)
   }
   // a fresh frame each time: no leftover history, and we can tell when Drive opens a photo inside it
   let homeSrc = '', loads = 0;
@@ -1775,7 +1776,11 @@ const FILL = {
     homeSrc = src; loads = 0; $('#vback').hidden = true;
     const f = document.createElement('iframe');
     f.id = 'vframe'; f.title = 'Proof document'; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
-    f.addEventListener('load', () => { loads += 1; if (loads > 1 && /embeddedfolderview/.test(homeSrc)) $('#vback').hidden = false; });
+    f.addEventListener('load', () => {
+      loads += 1;
+      if (loads > 2 && /embeddedfolderview/.test(homeSrc)) { closeViewer(false); return; }   // Back from a photo: close the popup
+      if (loads > 1 && /embeddedfolderview/.test(homeSrc)) $('#vback').hidden = false;
+    });
     f.src = src; frame.replaceWith(f); frame = f;
   }
   $('#vback').addEventListener('click', () => loadFrame(homeSrc));
@@ -1786,13 +1791,16 @@ const FILL = {
     const f = document.createElement('iframe'); f.id = 'vframe'; f.title = 'Proof document'; frame.replaceWith(f); frame = f;   // also drops the frame's own history
     $('#vback').hidden = true; unlockPage();
   }
-  function closeViewer() {
+  function closeViewer(fromBack) {
     if (viewer.open) viewer.close();
     cleanup();
+    if (!fromBack && history.state && history.state.viewer) history.back();   // drop our step; the popstate below is then ignored
   }
-  $('#vclose').addEventListener('click', closeViewer);
-  viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
-  viewer.addEventListener('cancel', (e) => { e.preventDefault(); closeViewer(); });   // Esc key and the phone Back gesture (browser-native for open popups)
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';   // never let Back jump the page to the top
+  addEventListener('popstate', () => { if (!cleaned || viewer.open) closeViewer(true); });
+  $('#vclose').addEventListener('click', () => closeViewer(false));
+  viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(false); });
+  viewer.addEventListener('cancel', (e) => { e.preventDefault(); closeViewer(false); });   // Esc key and the phone Back gesture (browser-native for open popups)
   viewer.addEventListener('close', () => cleanup());                                     // safety net
 
   const ICON = { 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
