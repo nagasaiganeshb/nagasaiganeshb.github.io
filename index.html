@@ -826,6 +826,13 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
   .mbadges small{font-size:10.5px;color:var(--muted)}
 }
 
+/* page lock while the proof popup is open */
+html.locked{overflow:hidden;scroll-behavior:auto}
+html.locked body{position:fixed;left:0;right:0;overflow:hidden;width:100%}
+dialog.viewer{overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom}
+dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media (max-width:640px){dialog.viewer{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:0;margin:0}.vhead{padding:10px 10px 10px 16px}}
+
 /* ---------- print = a separate, compact résumé (hidden on screen) ---------- */
 .resume{display:none}
 @media print{
@@ -1742,13 +1749,25 @@ const FILL = {
     return null;
   }
   const viewer = $('#viewer'), frame = $('#vframe');
+  // keep the page still while the popup is open (scroll + pinch go to the popup, not the page behind)
+  let savedY = 0;
+  function lockPage() {
+    savedY = window.scrollY;
+    document.documentElement.classList.add('locked');
+    document.body.style.top = -savedY + 'px';
+  }
+  function unlockPage() {
+    document.documentElement.classList.remove('locked');
+    document.body.style.top = '';
+    window.scrollTo({ top: savedY, behavior: 'instant' });
+  }
   function openViewer(p) {
     if (typeof viewer.showModal !== 'function') { window.open(p.url, '_blank', 'noopener'); return; }
-    $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; frame.src = embedUrl(p.url); viewer.showModal();
+    $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; frame.src = embedUrl(p.url); lockPage(); viewer.showModal();
   }
   $('#vclose').addEventListener('click', () => viewer.close());
   viewer.addEventListener('click', (e) => { if (e.target === viewer) viewer.close(); });
-  viewer.addEventListener('close', () => { frame.src = 'about:blank'; });
+  viewer.addEventListener('close', () => { frame.src = 'about:blank'; unlockPage(); });
 
   const ICON = { 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
   function chip(key) {
