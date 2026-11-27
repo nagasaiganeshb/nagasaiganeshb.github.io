@@ -777,8 +777,8 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
   .menubtn .i-close{display:none}
   header.top.open .menubtn .i-open{display:none}
   header.top.open .menubtn .i-close{display:block}
-  .mnav{display:grid;gap:4px;max-height:0;overflow:hidden;padding:0 22px;transition:max-height .3s ease,padding .3s ease;border-top:1px solid transparent}
-  header.top.open .mnav{max-height:420px;padding:10px 22px 16px;border-top-color:var(--line)}
+  .mnav{display:grid;gap:4px;position:absolute;left:0;right:0;top:100%;max-height:0;overflow:hidden;padding:0 22px;background:var(--bg);transition:max-height .3s ease,padding .3s ease;border-top:1px solid transparent;box-shadow:0 24px 40px -20px rgba(0,0,0,.6)}
+  header.top.open .mnav{max-height:calc(100svh - 66px);overflow:auto;padding:10px 22px 16px;border-top-color:var(--line);border-bottom:1px solid var(--line)}
   .mnav a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;color:var(--text)}
   .mnav a .icon{color:var(--gold);font-size:17px}
   .mnav a:hover,.mnav a.active{background:var(--accent-soft)}
@@ -1768,7 +1768,6 @@ const FILL = {
   function openViewer(p) {
     if (typeof viewer.showModal !== 'function') { window.open(p.url, '_blank', 'noopener'); return; }
     $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; loadFrame(embedUrl(p.url)); lockPage(); viewer.showModal(); cleaned = false;
-    history.pushState({ viewer: 1 }, '');   // phone/browser Back closes the popup
   }
   // a fresh frame each time: no leftover history, and we can tell when Drive opens a photo inside it
   let homeSrc = '', loads = 0;
@@ -1780,23 +1779,21 @@ const FILL = {
     f.src = src; frame.replaceWith(f); frame = f;
   }
   $('#vback').addEventListener('click', () => loadFrame(homeSrc));
-  // one close path for ✕, tap outside, Esc and the phone/browser Back button
+  // one close path for ✕, tap outside, Esc and the phone Back gesture
   let cleaned = true;
   function cleanup() {
     if (cleaned) return; cleaned = true;
     const f = document.createElement('iframe'); f.id = 'vframe'; f.title = 'Proof document'; frame.replaceWith(f); frame = f;   // also drops the frame's own history
     $('#vback').hidden = true; unlockPage();
   }
-  function closeViewer(fromBack) {
+  function closeViewer() {
     if (viewer.open) viewer.close();
     cleanup();
-    if (!fromBack && history.state && history.state.viewer) history.back();   // remove the history step we added
   }
-  $('#vclose').addEventListener('click', () => closeViewer(false));
-  viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(false); });
-  viewer.addEventListener('cancel', (e) => { e.preventDefault(); closeViewer(false); });   // Esc
+  $('#vclose').addEventListener('click', closeViewer);
+  viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
+  viewer.addEventListener('cancel', (e) => { e.preventDefault(); closeViewer(); });   // Esc key and the phone Back gesture (browser-native for open popups)
   viewer.addEventListener('close', () => cleanup());                                     // safety net
-  addEventListener('popstate', () => { if (!cleaned || viewer.open) closeViewer(true); });
 
   const ICON = { 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
   function chip(key) {
