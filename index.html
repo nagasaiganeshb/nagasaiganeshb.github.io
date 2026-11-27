@@ -826,6 +826,9 @@ dialog.viewer[open]{display:flex;flex-direction:column;animation:pop .18s ease}
   .mbadges small{font-size:10.5px;color:var(--muted)}
 }
 
+.vback{padding:8px 12px!important;font-size:13.5px!important;flex:none}
+.vback[hidden]{display:none}
+@media (max-width:560px){.vback span{display:none}}
 /* page lock while the proof popup is open */
 html.locked{overflow:hidden;scroll-behavior:auto}
 html.locked body{position:fixed;left:0;right:0;overflow:hidden;width:100%}
@@ -1578,6 +1581,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
 <!-- proof viewer -->
 <dialog class="viewer" id="viewer" aria-labelledby="vt">
   <div class="vhead">
+    <button class="btn vback" id="vback" type="button" hidden><svg class="icon" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg><span>All photos</span></button>
     <div class="grow"><div class="t" id="vt"></div><div class="s" id="vs">Original file on Google Drive</div></div>
     <a class="btn" id="vopen" href="#" target="_blank" rel="noopener" style="padding:8px 14px;font-size:14px"><svg class="icon"><use href="#i-ext"/></svg><span>Open original</span></a>
     <button class="iconbtn" id="vclose" type="button" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
@@ -1748,7 +1752,7 @@ const FILL = {
     if (m) return 'https://docs.google.com/' + m[1] + '/d/' + m[2] + '/preview';
     return null;
   }
-  const viewer = $('#viewer'), frame = $('#vframe');
+  const viewer = $('#viewer'); let frame = $('#vframe');
   // keep the page still while the popup is open (scroll + pinch go to the popup, not the page behind)
   let savedY = 0;
   function lockPage() {
@@ -1763,11 +1767,21 @@ const FILL = {
   }
   function openViewer(p) {
     if (typeof viewer.showModal !== 'function') { window.open(p.url, '_blank', 'noopener'); return; }
-    $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; frame.src = embedUrl(p.url); lockPage(); viewer.showModal();
+    $('#vt').textContent = p.caption; $('#vs').textContent = /youtu/.test(p.url) ? 'Video on YouTube' : 'Original file on Google Drive'; $('#vopen').href = p.url; loadFrame(embedUrl(p.url)); lockPage(); viewer.showModal();
   }
+  // a fresh frame each time: no leftover history, and we can tell when Drive opens a photo inside it
+  let homeSrc = '', loads = 0;
+  function loadFrame(src) {
+    homeSrc = src; loads = 0; $('#vback').hidden = true;
+    const f = document.createElement('iframe');
+    f.id = 'vframe'; f.title = 'Proof document'; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+    f.addEventListener('load', () => { loads += 1; if (loads > 1 && /embeddedfolderview/.test(homeSrc)) $('#vback').hidden = false; });
+    f.src = src; frame.replaceWith(f); frame = f;
+  }
+  $('#vback').addEventListener('click', () => loadFrame(homeSrc));
   $('#vclose').addEventListener('click', () => viewer.close());
   viewer.addEventListener('click', (e) => { if (e.target === viewer) viewer.close(); });
-  viewer.addEventListener('close', () => { frame.src = 'about:blank'; unlockPage(); });
+  viewer.addEventListener('close', () => { const f = document.createElement('iframe'); f.id = 'vframe'; f.title = 'Proof document'; frame.replaceWith(f); frame = f; $('#vback').hidden = true; unlockPage(); });
 
   const ICON = { 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
   function chip(key) {
