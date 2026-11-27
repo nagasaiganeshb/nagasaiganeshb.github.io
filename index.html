@@ -836,6 +836,12 @@ dialog.viewer{overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom}
 dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 @media (max-width:640px){dialog.viewer{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:0;margin:0}.vhead{padding:10px 10px 10px 16px}}
 
+.vision{display:flex;gap:10px;align-items:flex-start;margin:16px 0 0;padding:12px 14px;border-radius:12px;border:1px solid color-mix(in oklab,var(--gold) 40%,var(--line));background:linear-gradient(120deg,var(--gold-soft),transparent 75%);font-size:14px;line-height:1.55;color:var(--muted);max-width:56ch}
+.vision .proofs{display:flex;margin:8px 0 0;padding:0}
+.vision > span{display:block}
+.vision .icon{color:var(--gold);font-size:16px;margin-top:2px;flex:none}
+@media (max-width:640px){.vision{font-size:13px;padding:10px 12px}}
+
 /* ---------- print = a separate, compact résumé (hidden on screen) ---------- */
 .resume{display:none}
 @media print{
@@ -982,7 +988,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
       <div class="mhead"><span class="mav"><img src="profile_nagasaiganesh.jpeg" alt="" width="56" height="56"></span><span><b>Naga Sai Ganesh B</b><small>AI Technical Lead &amp; Architect</small></span></div>
       <p class="hello">Hi, I'm <b>Naga Sai Ganesh B</b> — AI Technical Lead &amp; Architect</p>
       <h1>Building AI that starts with a <span class="tw" aria-label="real problem."><span id="tw">real problem.</span><span class="tw-cursor" aria-hidden="true"></span></span></h1>
-      <p class="sub">I lead and architect <mark class="hl">AI platforms for government and enterprise</mark> — at <strong>MSRcosmos</strong> — most recently <strong>MediaIntel</strong>, an AI media-intelligence platform built for the Government of Andhra Pradesh.</p>
+      <p class="sub">I lead and architect <mark class="hl">AI platforms for government and enterprise</mark> — at <strong>MSRcosmos</strong> — most recently <strong>MediaIntel</strong>, the Chief Minister's vision for AI media intelligence, built for Andhra Pradesh's Information &amp; Public Relations Department.</p>
       <div class="cta">
         <a class="btn primary" href="#work">See my work <svg class="icon"><use href="#i-arrow"/></svg></a>
         <a class="btn" href="mailto:nagasaiganeshb@outlook.com"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
@@ -1024,14 +1030,14 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
 <!-- ============ RECOGNITION MARQUEE ============ -->
 <div class="marquee" aria-label="Recognition">
   <div class="track">
-    <span><svg class="icon"><use href="#i-building"/></svg><b>MediaIntel</b> · built for the Govt. of Andhra Pradesh</span>
+    <span><svg class="icon"><use href="#i-building"/></svg><b>MediaIntel</b> · for the Dept. of I&amp;PR, Govt. of Andhra Pradesh</span>
     <span><svg class="icon"><use href="#i-trophy"/></svg><b>Government of India</b> · SIH 2020 National Winner</span>
     <span><svg class="icon"><use href="#i-check"/></svg><b>Microsoft</b> · Agentic AI Architect Expert</span>
     <span><svg class="icon"><use href="#i-award"/></svg><b>IISF 2019</b> · Runner-up</span>
     <span><svg class="icon"><use href="#i-check"/></svg><b>Oracle</b> · MySQL 8.0 DBA Professional</span>
     <span><svg class="icon"><use href="#i-award"/></svg><b>Govt. of AP</b> · Prathibha gold medal</span>
     <span><svg class="icon"><use href="#i-trophy"/></svg><b>TCS</b> · TrendInno Winner</span>
-    <span aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg><b>MediaIntel</b> · built for the Govt. of Andhra Pradesh</span>
+    <span aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg><b>MediaIntel</b> · for the Dept. of I&amp;PR, Govt. of Andhra Pradesh</span>
     <span aria-hidden="true"><svg class="icon"><use href="#i-trophy"/></svg><b>Government of India</b> · SIH 2020 National Winner</span>
     <span aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg><b>Microsoft</b> · Agentic AI Architect Expert</span>
     <span aria-hidden="true"><svg class="icon"><use href="#i-award"/></svg><b>IISF 2019</b> · Runner-up</span>
@@ -1059,11 +1065,12 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
           <div class="fhead">
             <span class="mchip lead"><svg class="icon"><use href="#i-crown"/></svg>Technical Lead &amp; Architect</span>
             <span class="mchip org"><svg class="icon"><use href="#i-brief"/></svg>MSRcosmos</span>
-            <span class="mchip client"><svg class="icon"><use href="#i-landmark"/></svg><small>Client</small>Govt. of Andhra Pradesh</span>
+            <span class="mchip client"><svg class="icon"><use href="#i-landmark"/></svg><small>Client</small>Dept. of I&amp;PR, Govt. of AP</span>
             <span class="mchip when"><svg class="icon"><use href="#i-cal"/></svg>2026 – present</span>
             <span class="mchip live"><i></i>Live</span>
           </div>
           <h3 id="mi-h">MediaIntel <em>AI media intelligence for a state government</em></h3>
+          <p class="vision"><svg class="icon"><use href="#i-spark"/></svg><span>The Chief Minister's vision — presented at the Andhra Pradesh District Collectors' Conference as his brainchild. I led its technical execution at MSRcosmos for the Department of Information &amp; Public Relations.<span class="proofs" data-proof="miConf"></span></span></p>
           <p class="lede">Follows what people say about roads, water, hospitals, schools and welfare schemes, so the Government of Andhra Pradesh spots problems early and each issue reaches the official who can fix it.</p>
                     <div class="chan"><div class="cgrp"><span class="slab">Used by</span><span class="src"><svg class="icon" style="color:var(--gold)"><use href="#i-building"/></svg>CM's Office</span><span class="src"><svg class="icon" style="color:var(--accent)"><use href="#i-users"/></svg>Departments</span><span class="src"><svg class="icon" style="color:var(--ok)"><use href="#i-map"/></svg>Collectors</span></div><div class="cgrp"><span class="slab">Monitors</span><span class="src ico" title="Newspapers" aria-label="Newspapers" role="img"><svg class="icon" style="color:var(--gold)"><use href="#i-news"/></svg></span><span class="src ico" title="ePaper" aria-label="ePaper" role="img"><svg class="icon" style="color:#0EA5E9"><use href="#i-epaper"/></svg></span><span class="src ico" title="TV news channels" aria-label="TV news channels" role="img"><svg class="icon" style="color:#A855F7"><use href="#i-tv"/></svg></span><span class="src ico" title="X" aria-label="X" role="img"><svg class="bm" style="color:var(--text)"><use href="#b-x"/></svg></span><span class="src ico" title="YouTube" aria-label="YouTube" role="img"><svg class="bm" style="color:#FF0000"><use href="#b-youtube"/></svg></span><span class="src ico" title="Facebook" aria-label="Facebook" role="img"><svg class="bm" style="color:#0866FF"><use href="#b-facebook"/></svg></span><span class="src ico" title="Instagram" aria-label="Instagram" role="img"><svg class="bm" style="color:#E4405F"><use href="#b-instagram"/></svg></span></div><div class="cgrp"><span class="slab">Alerts</span><span class="src ico" title="App" aria-label="App" role="img"><svg class="icon" style="color:var(--accent)"><use href="#i-app"/></svg></span><span class="src ico" title="Email" aria-label="Email" role="img"><svg class="icon" style="color:#EA4335"><use href="#i-mail"/></svg></span><span class="src ico" title="WhatsApp" aria-label="WhatsApp" role="img"><svg class="bm" style="color:#25D366"><use href="#b-whatsapp"/></svg></span></div></div>
           
@@ -1166,6 +1173,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
         <div class="ptext">
           <div class="meta"><span class="role">ML Engineer</span><span>2023</span><span>Pilot for the Govt. of Andhra Pradesh</span></div>
           <h3>CrowdPulse</h3>
+          <p class="vision"><svg class="icon"><use href="#i-spark"/></svg><span>Also the Chief Minister's vision — a pilot for the Government of Andhra Pradesh. I built its real-time video AI as ML engineer at MSRcosmos.</span></p>
           <p class="what"><b>In short —</b> watches live video from public meetings and gatherings and shows, in real time, how the crowd is feeling.</p>
           <p class="detail">A GPU-optimised pipeline — face detection → emotion classification → live sentiment dashboard — across many simultaneous streams, started automatically with no manual steps.</p>
           <div class="nums"><div><strong>50+</strong>live video streams</div><div><strong>75%</strong>lower latency</div><div><strong>60%</strong>faster decisions</div></div>
@@ -1281,10 +1289,10 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
       <div class="card timeline reveal">
         <div class="co"><h3>MSRcosmos · Hyderabad</h3><span class="mono note">JAN 2022 – PRESENT</span></div>
         <ul class="tl" id="tl">
-          <li><span class="tl-node"></span><div class="when">2026 – PRESENT</div><div class="what2">Technical Lead &amp; Architect<span>MediaIntel — built for the Government of Andhra Pradesh</span></div></li>
+          <li><span class="tl-node"></span><div class="when">2026 – PRESENT</div><div class="what2">Technical Lead &amp; Architect<span>MediaIntel — built for the Dept. of I&amp;PR, Govt. of Andhra Pradesh</span></div></li>
           <li><span class="tl-node"></span><div class="when">2024 – PRESENT</div><div class="what2">Technical Lead<span>Smart I Helper — AI knowledge assistant for organisations</span></div></li>
           <li><span class="tl-node"></span><div class="when">2023 – 2024</div><div class="what2">Architect<span>MSR GenAI — multi-tenant GenAI SaaS</span></div></li>
-          <li><span class="tl-node"></span><div class="when">2023</div><div class="what2">ML Engineer<span>CrowdPulse — real-time video AI, a pilot for the Govt. of AP</span></div></li>
+          <li><span class="tl-node"></span><div class="when">2023</div><div class="what2">ML Engineer<span>CrowdPulse — the Chief Minister's vision, real-time video AI pilot for the Govt. of AP</span></div></li>
           <li><span class="tl-node"></span><div class="when">2022</div><div class="what2">Backend Lead<span>Vinci360 — social-media intelligence SaaS</span></div></li>
           <li><span class="tl-node"></span><div class="when">2022</div><div class="what2">Frontend Developer<span>OnlineSilver — e-commerce</span></div></li>
         </ul>
@@ -1344,7 +1352,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
         <svg class="icon medal" aria-hidden="true"><use href="#i-award"/></svg>
         <span class="yr">2018 · GOVT. OF ANDHRA PRADESH</span>
         <h3>Prathibha Award — Gold Medal</h3>
-        <p>For excellence in diploma education, presented by Chief Minister Shri N. Chandrababu Naidu.</p>
+        <p>For excellence in diploma education, presented by Chief Minister Shri N. Chandrababu Naidu garu.</p>
         <div class="proofs" data-proof="prathibhaCert prathibhaMedal"></div>
       </article>
       <article class="card award spot reveal">
@@ -1451,7 +1459,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
           <span class="proofs" data-proof="ambulanceBlog"></span>
           <p>Then a competition trail across three states: <strong>1st in IoT</strong> at Bannari Amman Institute (Tamil Nadu); a loss at DKTE Ichalkaranji that taught me how to present; <strong>2nd + special appreciation at CSESTA 2018</strong> on one day's preparation; and at Techno-Innova, Bharati Vidyapeeth Pune, <strong>1st in C, 1st in Java</strong> and 2nd in paper presentation — against engineering-degree students.</p>
           <span class="proofs" data-proof="bannariCert"></span>
-          <p>I finished with <strong>96.94% — 2nd across the entire Computer Engineering department</strong>, both shifts combined. The <strong>Prathibha Award 2018 gold medal</strong> from the Government of Andhra Pradesh, presented by Chief Minister Shri N. Chandrababu Naidu, went to a kid whose parents had stretched for a computer years before.</p>
+          <p>I finished with <strong>96.94% — 2nd across the entire Computer Engineering department</strong>, both shifts combined. The <strong>Prathibha Award 2018 gold medal</strong> from the Government of Andhra Pradesh, presented by Chief Minister Shri N. Chandrababu Naidu garu, went to a kid whose parents had stretched for a computer years before.</p>
           <span class="proofs" data-proof="diplomaRank prathibhaCert prathibhaMedal"></span>
         </div>
       </details>
@@ -1472,8 +1480,10 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
         <summary><span class="yr">2022 – today</span><span><h3>MSRcosmos — building at scale</h3><span class="sum">Frontend → backend lead → ML → architect → leading a state government platform.</span></span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
         <div class="chbody">
           <p>I joined <strong>MSRcosmos in January 2022</strong> and took on a bigger role every year.</p>
-          <p><strong>OnlineSilver</strong> — frontend developer on a greenfield e-commerce launch; the component library I built still speeds up projects. <strong>Vinci360</strong> — as backend lead, I revived a retired system in a week and scaled it past a million records a day. <strong>CrowdPulse</strong> — as ML engineer, the vision ideas from Smart Rescue, now reading crowd emotion across 50+ live streams for the Government of AP. <strong>MSR GenAI</strong> — my first product as architect. <strong>Smart I Helper</strong> — technical lead for an agentic AI knowledge assistant for organisations.</p>
-          <p>Today, at MSRcosmos, I'm <strong>Technical Lead &amp; Architect of MediaIntel</strong> — an AI media-intelligence platform we built for the Government of Andhra Pradesh.</p>
+          <p><strong>OnlineSilver</strong> — frontend developer on a greenfield e-commerce launch; the component library I built still speeds up projects. <strong>Vinci360</strong> — as backend lead, I revived a retired system in a week and scaled it past a million records a day. <strong>CrowdPulse</strong> — as ML engineer, the vision ideas from Smart Rescue, now reading crowd emotion across 50+ live streams in a pilot of another of the Chief Minister's visions. <strong>MSR GenAI</strong> — my first product as architect. <strong>Smart I Helper</strong> — technical lead for an agentic AI knowledge assistant for organisations.</p>
+          <p>Today, at MSRcosmos, I'm <strong>Technical Lead &amp; Architect of MediaIntel</strong>, built for the Department of Information &amp; Public Relations.</p>
+          <p>It's a full circle: in 2018, Chief Minister <strong>Shri N. Chandrababu Naidu garu</strong> presented me the Prathibha Award as a diploma student. Since then, I've built the technology behind his ideas — the <strong>CrowdPulse</strong> pilot, <strong>Smart I Helper</strong>, which also began as his idea, and now <strong>MediaIntel</strong>, presented at the District Collectors' Conference as his brainchild, where I lead the technical execution.</p>
+          <span class="proofs" data-proof="miConf"></span>
         </div>
       </details>
     </div>
@@ -1526,13 +1536,13 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
   <div class="r-contact"><a href="mailto:nagasaiganeshb@outlook.com">nagasaiganeshb@outlook.com</a> · +91 90521 91523 · <a href="https://www.linkedin.com/in/nagasaiganeshb">linkedin.com/in/nagasaiganeshb</a> · <a href="https://github.com/nagasaiganeshb">github.com/nagasaiganeshb</a> · <a href="https://nagasaiganeshb.github.io">nagasaiganeshb.github.io</a></div>
 
   <h2>Summary</h2>
-  <p>Technical lead and architect of AI platforms for government and enterprise, currently at MSRcosmos leading MediaIntel — an AI media-intelligence platform built for the Government of Andhra Pradesh and used by the Chief Minister's Office, departments and district collectors. Hands-on across frontend, backend, machine learning and architecture: agentic AI, RAG, vector search, computer vision and multi-tenant SaaS on Microsoft Azure. Smart India Hackathon 2020 National Winner; Microsoft Certified Agentic AI Business Solutions Architect Expert.</p>
+  <p>Technical lead and architect of AI platforms for government and enterprise, currently at MSRcosmos leading the technical execution of MediaIntel — the Chief Minister's AI media-intelligence initiative for the Dept. of I&amp;PR, Government of Andhra Pradesh, used by the Chief Minister's Office, departments and district collectors. Hands-on across frontend, backend, machine learning and architecture: agentic AI, RAG, vector search, computer vision and multi-tenant SaaS on Microsoft Azure. Smart India Hackathon 2020 National Winner; Microsoft Certified Agentic AI Business Solutions Architect Expert.</p>
 
   <h2>Experience</h2>
   <div class="r-job">MSRcosmos, Hyderabad <span>Jan 2022 – present</span></div>
-  <div class="r-proj"><b>Technical Lead &amp; Architect — MediaIntel</b> (client: Government of Andhra Pradesh) <i>(2026 – present · mediaintel.ap.gov.in)</i>
+  <div class="r-proj"><b>Technical Lead &amp; Architect — MediaIntel</b> (client: Dept. of I&amp;PR, Government of Andhra Pradesh) <i>(2026 – present · mediaintel.ap.gov.in)</i>
     <ul>
-      <li>Lead MSRcosmos's technology and team behind the AI media-intelligence platform built for the state, used by the Chief Minister's Office, departments and district collectors.</li>
+      <li>Led technical execution of the Chief Minister's AI media-intelligence initiative, presented at the AP District Collectors' Conference; used by the Chief Minister's Office, departments and district collectors.</li>
       <li>The platform listens to news and social media across all 28 districts, spots rising public issues early, measures public mood, and routes each issue to the responsible official.</li>
       <li>Own architecture, AI and delivery end to end, including role- and region-based access so every official sees exactly their own district or department.</li>
     </ul></div>
@@ -1540,7 +1550,7 @@ dialog.viewer .vbody{overflow:auto;-webkit-overflow-scrolling:touch;overscroll-b
     <ul><li>Agentic RAG knowledge assistant for organisations: hybrid search, contextual chunking, re-ranking and multi-step reasoning over internal policies, documents and reports.</li></ul></div>
   <div class="r-proj"><b>Architect — MSR GenAI</b> <i>(2023 – 2024 · app.msrgenai.com · first architect role)</i>
     <ul><li>Multi-tenant enterprise GenAI SaaS with RAG, document automation and agentic workflows — 90% answer accuracy, 80% lower development cost.</li></ul></div>
-  <div class="r-proj"><b>ML Engineer — CrowdPulse</b> <i>(2023 · pilot for the Government of Andhra Pradesh)</i>
+  <div class="r-proj"><b>ML Engineer — CrowdPulse</b> <i>(2023 · the Chief Minister's vision; pilot for the Government of Andhra Pradesh)</i>
     <ul><li>Real-time crowd-emotion analytics over 50+ live video streams (face detection → emotion classification → live dashboard); 75% lower latency.</li></ul></div>
   <div class="r-proj"><b>Backend Lead — Vinci360</b> <i>(2022 · vinci360.com)</i>
     <ul><li>Revived a retired system in one week and scaled it into a social-media intelligence SaaS: 1M+ records/day, 200% more scale, 40% lower cost.</li></ul></div>
@@ -1611,6 +1621,7 @@ const PROOF = {
   csestaCert:     { label: 'CSESTA · 2nd',     caption: 'CSESTA 2018 — 2nd place', url: '' },
   diplomaRank:    { label: 'Rank certificate', caption: 'Diploma — 2nd in the department, 96.94%', url: '' },
   ambulanceBlog:  { label: 'Blog',             caption: 'Smart Ambulance — blog', url: 'https://bnsganesh.blogspot.com/2020/05/smart-ambulance.html' },
+  miConf:         { label: 'Watch at the Collectors\' Conference', caption: 'District Collectors\' Conference, chaired by Hon\'ble CM — MediaIntel presentation (I&PR AP official channel, from 8:18:23)', url: 'https://www.youtube.com/watch?v=Q5oLvCZ1K-8&t=29903', official: true },
   miVideo:        { label: 'Watch news coverage', caption: 'MediaIntel — TV news coverage (YouTube)', url: 'https://youtu.be/q82u_EQJr_I' },
   rescuePhotos:   { label: 'Photos',           caption: 'Smart Rescue System — photos', url: '' },
 };
@@ -1747,7 +1758,10 @@ const FILL = {
     m = url.match(/drive\.google\.com\/drive\/(?:u\/\d+\/)?folders\/([\w-]+)/);
     if (m) return 'https://drive.google.com/embeddedfolderview?id=' + m[1] + '#grid';
     m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/);
-    if (m) return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0';
+    if (m) {
+      const t = url.match(/[?&](?:t|start)=(\d+)/);
+      return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0' + (t ? '&start=' + t[1] : '');
+    }
     m = url.match(/docs\.google\.com\/(document|presentation|spreadsheets)\/d\/([\w-]+)/);
     if (m) return 'https://docs.google.com/' + m[1] + '/d/' + m[2] + '/preview';
     return null;
@@ -1803,7 +1817,7 @@ const FILL = {
   viewer.addEventListener('cancel', (e) => { e.preventDefault(); closeViewer(false); });   // Esc key and the phone Back gesture (browser-native for open popups)
   viewer.addEventListener('close', () => cleanup());                                     // safety net
 
-  const ICON = { 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
+  const ICON = { 'Watch at the Collectors\' Conference': 'i-tv', 'Watch news coverage': 'i-news', Photos: 'i-image', 'Gold medal': 'i-award', News: 'i-news', Blog: 'i-rss' };
   function chip(key) {
     const p = PROOF[key]; if (!p || !p.url) return null;
     const embed = embedUrl(p.url), a = document.createElement('a');
